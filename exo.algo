@@ -1,0 +1,46 @@
+ALGORITHME Connaitre le nombre de voyelles, sa longueur et le nombre de mots dans une phrase.
+
+
+
+VAR
+    phrase : STRING
+    longueur : INTEGER
+    nombreDeMots : INTEGER
+    nombreDeVoyelles : INTEGER
+    motEnCours : BOOLEAN
+    array_voyelles : ARRAY_OF type[CHAR]
+    char : CHAR
+
+BEGIN
+    // Initialisation
+    longueur := 0
+    nombreDeMots := 0
+    nombreDeVoyelles := 0
+    motEnCours := FAUX
+    voyelles := ['a', 'e', 'i', 'o', 'u','y', 'A', 'E', 'I', 'O', 'U','Y']: CHAR
+
+    Read (phrase)
+
+
+// Parcours de la phrase caractère par caractère
+    FOR char TO phrase DO
+        longueur = longueur + 1
+
+        IF (ch <> ' ' ET motEnCours = FAUX ) THEN
+            nombreDeMots = nombreDeMots + 1
+            motEnCours = VRAI
+        ELSE_IF (ch = ' ') THEN
+            motEnCours = FAUX
+        END_IF
+
+            //Compter les voyelles
+            IF (phrase = array_voyelles[voyelles] ) THEN
+                nombreDeVoyelles = nombreDeVoyelles + 1
+            END_IF
+    END_FOR
+
+    // Afficher les résultats
+    Write ("Longueur de la phrase :"), longueur
+    Write ("Nombre de mots :"), nombreDeMots
+    Write ("Nombre de voyelles :"), nombreDeVoyelles
+END
